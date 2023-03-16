@@ -23,8 +23,8 @@ pipeline {
                 script { 
                     // Wiz IAC scan
                     env.GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
-                    sh "./wizcli iac scan --path . --tag repo=omfcards-$GIT_REPO_NAME --tag branch=$GIT_BRANCH --tag commit=$GIT_COMMIT  -p custom-policy-secrets --policy-hits-only  || true"
-                    sh "./wizcli iac scan --path . --tag repo=omfcards-$GIT_REPO_NAME --tag branch=$GIT_BRANCH --tag commit=$GIT_COMMIT  -p custom-policy-high-critical-severity-misconfigurations --policy-hits-only || true"
+                    sh "./wizcli iac scan --path . --tag repo=omfcards-$GIT_REPO_NAME --tag branch=$GIT_BRANCH --tag commit=$GIT_COMMIT  -p custom-policy-secrets --policy-hits-only "
+                    sh "./wizcli iac scan --path . --tag repo=omfcards-$GIT_REPO_NAME --tag branch=$GIT_BRANCH --tag commit=$GIT_COMMIT  -p custom-policy-high-critical-severity-misconfigurations --policy-hits-only  "
 
                 }
             } 
